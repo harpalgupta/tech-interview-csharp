@@ -1,32 +1,19 @@
-﻿using System.Text.Json;
-using System;
-using System.Text.Json.Serialization;
+﻿using Microsoft.VisualBasic;
+using Newtonsoft.Json;
+using System.IO;
+using System.Reflection.PortableExecutable;
+using Vehicles.Api.Models;
 
 namespace Vehicles.Api.Repositories
 {
 
-    public class Vehicle
-    {
-        [JsonPropertyName("make")]
-        public string Make { get; set; }
-        [JsonPropertyName("model")]
-        public string Model { get; set; }
-        [JsonPropertyName("trim")]
-        public string Trim { get; set; }
-        [JsonPropertyName("colour")]
-        public string Colour { get; set; }
-    }
-
     public class VehiclesRepository
     {
-        List<Vehicle> _vehicles;
+        readonly List<Vehicle> _vehicles;
+
         public VehiclesRepository()
         {
-            using (StreamReader r = new StreamReader("Repositories/vehicles.json"))
-            {
-                string json = r.ReadToEnd();
-                _vehicles = JsonSerializer.Deserialize<List<Vehicle>>(json) ?? new List<Vehicle>();
-            }
+            _vehicles = JsonConvert.DeserializeObject<List<Vehicle>>(File.ReadAllText("Repositories/vehicles.json")) ?? new List<Vehicle>(); ;
         }
 
         public List<Vehicle> GetAll()
