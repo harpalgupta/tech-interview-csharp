@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Vehicles.Api.Models;
 using Vehicles.Api.Repositories;
+using Vehicles.Api.Services;
 
 namespace Vehicles.Api.Controllers
 {
@@ -9,18 +10,33 @@ namespace Vehicles.Api.Controllers
     public class VehiclesController : ControllerBase
     {
         private readonly ILogger<VehiclesController> _logger;
-        private readonly IVehiclesRepository _vehiclesRepository;
+        private readonly IVehiclesService _vehiclesService;
 
-        public VehiclesController(ILogger<VehiclesController> logger, IVehiclesRepository vehiclesRepository)
+        public VehiclesController(ILogger<VehiclesController> logger, IVehiclesService vehiclesService)
         {
             _logger = logger;
-            _vehiclesRepository = vehiclesRepository;
+            _vehiclesService = vehiclesService;
         }
 
         [HttpGet]
         public List<Vehicle> GetAllVehicles()
         {
-            return _vehiclesRepository.GetAll();
+            return _vehiclesService.GetAllVehicles();
+        }
+        [HttpGet("Model")]
+        public List<Vehicle> GetVehiclesByModel(string model)
+        {
+            return _vehiclesService.GetByModel(model);
+        }
+        [HttpGet("Make")]
+        public List<Vehicle> GetVehiclesByMake(string make)
+        {
+            return _vehiclesService.GetByMake(make);
+        }
+        [HttpGet("PriceRange")]
+        public List<Vehicle> GetVehiclesByPriceRange(int? fromPrice, int? toPrice)
+        {
+            return _vehiclesService.GetByPrice(fromPrice, toPrice);
         }
     }
 }

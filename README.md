@@ -2,8 +2,8 @@ This repository is for a technical task in C# provided by Motorpoint.
 
 Clone this repository and complete the following tasks.
 
-- Add the remaining fields to the vehicle model
-- Implement an endpoint for listing all cars
+- Add the remaining fields to the vehicle model done
+- Implement an endpoint for listing all cars done
 - Implement an endpoint for listing cars by make
 - Implement an endpoint for listing cars by model
 - Add any other endpoints you think are useful / relevant
