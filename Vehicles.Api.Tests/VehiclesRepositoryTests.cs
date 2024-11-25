@@ -11,7 +11,6 @@ namespace Vehicles.Api.Tests
         public void init()
         {
             vehiclesRepository = new VehiclesRepository();
-            
         }
 
         [TestMethod]

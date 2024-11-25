@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Vehicles.Api.Models;
-using Vehicles.Api.Repositories;
 using Vehicles.Api.Services;
 
 namespace Vehicles.Api.Controllers
