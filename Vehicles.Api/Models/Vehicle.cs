@@ -5,43 +5,43 @@ namespace Vehicles.Api.Models
 {
     public class Vehicle
     {
-        [JsonPropertyName("make")]
+        [JsonProperty("make")]
         [JsonRequired]
         public string Make { get; set; }
 
-        [JsonPropertyName("model")]
+        [JsonProperty("model")]
         [JsonRequired]
         public string Model { get; set; }
 
-        [JsonPropertyName("trim")]
+        [JsonProperty("trim")]
         public string Trim { get; set; }
 
-        [JsonPropertyName("colour")]
+        [JsonProperty("colour")]
         [JsonRequired]
         public string Colour { get; set; }
 
-        [JsonPropertyName("price")]
+        [JsonProperty("price")]
         [JsonRequired]
         public int Price { get; set; }
 
-        [JsonPropertyName("co2_level")]
-        public int Co2Level { get; set; }
+        [JsonProperty("co2_level")]
+        public int co2_level { get; set; }
 
-        [JsonPropertyName("transmission")]
+        [JsonProperty("transmission")]
         [JsonRequired]
         public string Transmission { get; set; }
 
-        [JsonPropertyName("fuel_type")]
+        [JsonProperty("fuel_type")]
         public string FuelType { get; set; }
 
-        [JsonPropertyName("engine_size")]
+        [JsonProperty("engine_size")]
         [JsonRequired]
         public int Engine_size { get; set; }
 
-        [JsonPropertyName("date_first_reg")]
+        [JsonProperty("date_first_reg")]
         public DateTime DateFirstRegistered { get; set; }
 
-        [JsonPropertyName("mileage")]
+        [JsonProperty("mileage")]
         [JsonRequired]
 
         public int Mileage { get; set; }
